@@ -1,0 +1,53 @@
+{
+  "prateleiras": [
+    {
+      "livros": [
+        {
+          "autor": "Mauricio de Nassau",
+          "titulo": "Holanda em Pernambuco",
+          "edicao": "1980 - 2 Edição"
+        },
+        {
+          "autor": "Jordan Petterson",
+          "titulo": "12 Regras para a Vida",
+          "edicao": "1 Edição"
+        }
+      ]
+    },
+    {
+      "livros": [
+        {
+          "autor": "Jordan Petterson",
+          "titulo": "Mais 12 Regras para a Vida",
+          "edicao": "1 Edição"
+        }
+      ]
+    }
+  ]
+}{
+  "prateleiras": [
+    {
+      "livros": [
+        {
+          "autor": "Mauricio de Nassau",
+          "titulo": "Holanda em Pernambuco",
+          "edicao": "1980 - 2 Edição"
+        },
+        {
+          "autor": "Jordan Petterson",
+          "titulo": "12 Regras para a Vida",
+          "edicao": "1 Edição"
+        }
+      ]
+    },
+    {
+      "livros": [
+        {
+          "autor": "Jordan Petterson",
+          "titulo": "Mais 12 Regras para a Vida",
+          "edicao": "1 Edição"
+        }
+      ]
+    }
+  ]
+}
