@@ -6,18 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Servicos {
-	private Connection conn;
+	Connection conn = MySqlConnection.getConnection();
 	PreparedStatement ps = null;
 	
 	public String nome;
-	public Float valor;
+	public double valor;
 	
-	public Servicos(String nome, Float valor) {
-		this.nome = nome;
-		this.valor = valor;
-	}
+	public Servicos() {}
 	
-
 	public void findOne(int cliente_id) {
 		try {
 			String sql = "SELECT * FROM servicos WHERE id=?";
@@ -34,7 +30,6 @@ public class Servicos {
 			}
 			
 			rs.close();
-			ps.close();
 		} catch (SQLException e) {
 			// TODO: handle exception
 			System.out.println("Ocorreu um erro ao buscar os dados do cliente: " + e.getMessage());
@@ -48,7 +43,7 @@ public class Servicos {
 	            String sql = "INSERT INTO servicos (nome, valor) VALUES (?,?)";
 	            ps = conn.prepareStatement(sql);
 	            ps.setString(1, servico.nome);
-	            ps.setFloat(2, servico.valor);
+	            ps.setDouble(2, servico.valor);
 	            
 	            int linhasAfetadas = ps.executeUpdate();
 	            
@@ -57,7 +52,6 @@ public class Servicos {
 	            } else {
 	                System.out.println("Não foi possível inserir o registro.");
 	            }
-	            ps.close();
 	        } catch (SQLException e) {
 	            System.out.println("Não foi possível executar a instrução SQL.");
 	        }
@@ -68,7 +62,7 @@ public class Servicos {
 	            ps = conn.prepareStatement(sql);
 	            
 	            ps.setString(1, servico.nome);
-	            ps.setFloat(2, servico.valor);
+	            ps.setDouble(2, servico.valor);
 	            ps.setInt(3, id);
 	            
 	            int linhasAfetadas = ps.executeUpdate();
@@ -78,14 +72,11 @@ public class Servicos {
 	            } else {
 	                System.out.println("Não foi possível atualizar o registro.");
 	            }
-	            
-	            ps.close();
 	        } catch (SQLException e) {
 	            System.out.println("Não foi possível executar a instrução SQL.");
 	        }
 	    }
 	}
-
 	
 	public void delete(int id) {
 	    try {
@@ -101,8 +92,6 @@ public class Servicos {
 	        } else {
 	            System.out.println("Não foi possível deletar o registro.");
 	        }
-	        
-	        ps.close();
 	    } catch (SQLException e) {
 	        System.out.println("Não foi possível executar a instrução SQL.");
 	    }

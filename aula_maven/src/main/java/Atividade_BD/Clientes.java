@@ -6,18 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Clientes {
-	private Connection conn;
+	Connection conn = MySqlConnection.getConnection();
 	PreparedStatement ps = null;
 	
 	public String nome;
 	public String cpf;
 	public String email;
 	
-	public Clientes (String nome, String cpf, String email) {
-		this.nome = nome;
-		this.cpf = cpf;
-		this.email = email;
-	}
+	public Clientes () {}
 	
 	public void findOne(int cliente_id) {
 		try {
@@ -36,7 +32,6 @@ public class Clientes {
 			}
 			
 			rs.close();
-			ps.close();
 		} catch (SQLException e) {
 			// TODO: handle exception
 			System.out.println("Ocorreu um erro ao buscar os dados do cliente: " + e.getMessage());
@@ -60,7 +55,6 @@ public class Clientes {
 	            } else {
 	                System.out.println("Não foi possível inserir o registro.");
 	            }
-				ps.close();
 			} catch (SQLException e) {
 				System.out.println("Não foi possível executar a instrução SQL.");
 			}
@@ -73,6 +67,7 @@ public class Clientes {
 				ps.setString(1, cliente.cpf);
 				ps.setString(2, cliente.nome);
 				ps.setString(3, cliente.email);
+				ps.setInt(4, id);
 				
 				int linhasAfetadas = ps.executeUpdate();
 				
@@ -81,11 +76,28 @@ public class Clientes {
 	            } else {
 	                System.out.println("Não foi possível inserir o registro.");
 	            }
-				
-				ps.close();
 			} catch (SQLException e) {
 				System.out.println("Não foi possível executar a instrução SQL.");
 			}
 		}
+	}
+
+	public void delete(int id) {
+	    try {
+	        String sql = "DELETE FROM clientes WHERE id=?";
+	        ps = conn.prepareStatement(sql);
+	        
+	        ps.setInt(1, id);
+	        
+	        int linhasAfetadas = ps.executeUpdate();
+	        
+	        if (linhasAfetadas > 0) {
+	            System.out.println("Registro deletado com sucesso!");
+	        } else {
+	            System.out.println("Não foi possível deletar o registro.");
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("Não foi possível executar a instrução SQL.");
+	    }
 	}
 }

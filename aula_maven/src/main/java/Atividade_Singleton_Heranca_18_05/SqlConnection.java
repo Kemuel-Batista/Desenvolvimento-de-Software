@@ -1,19 +1,17 @@
-package Atividade_BD;
+package Atividade_Singleton_Heranca_18_05;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class MySqlConnection {
+public class SqlConnection {
 	static Connection conn = null;
 	
-	static String url = "jdbc:mysql://localhost:3306/empresa_coisas_coisas";
-	static String username = "root";
-	static String password = "";
-	
-	private MySqlConnection() {}
-	
-	public static Connection getConnection() {
+	static Connection getConnection() {
 		if(conn == null) {
+			String url = "jdbc:mysql://localhost:3306/bd_faculdade";
+			String username = "root";
+			String password = "positivo";
+			
 			return conexao(url, username, password);
 		}
 		return conn;
