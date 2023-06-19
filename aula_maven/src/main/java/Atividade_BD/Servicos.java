@@ -36,14 +36,14 @@ public class Servicos {
 		}
 	}
 	
-	public void save(int id, Servicos servico) {
+	public void save(int id) {
 	    if (id == 0) {
 	        // SALVAR CLIENTE NO BANCO
 	        try {
 	            String sql = "INSERT INTO servicos (nome, valor) VALUES (?,?)";
 	            ps = conn.prepareStatement(sql);
-	            ps.setString(1, servico.nome);
-	            ps.setDouble(2, servico.valor);
+	            ps.setString(1, this.nome);
+	            ps.setDouble(2, this.valor);
 	            
 	            int linhasAfetadas = ps.executeUpdate();
 	            
@@ -61,8 +61,8 @@ public class Servicos {
 	            String sql = "UPDATE servicos SET nome=?, valor=? WHERE id=?";
 	            ps = conn.prepareStatement(sql);
 	            
-	            ps.setString(1, servico.nome);
-	            ps.setDouble(2, servico.valor);
+	            ps.setString(1, this.nome);
+	            ps.setDouble(2, this.valor);
 	            ps.setInt(3, id);
 	            
 	            int linhasAfetadas = ps.executeUpdate();

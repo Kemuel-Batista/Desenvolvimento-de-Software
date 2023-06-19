@@ -10,11 +10,11 @@ public class Empresas_Coisas_Coisas {
 		cliente.email = "kemuellima@gmail.com";
 		cliente.nome = "Kemuel Batista";
 		
-		//cliente.save(0, cliente);
+		cliente.save(0);
 		
 		//cliente.findOne(1);
 		
-		//cliente.save(1, cliente);
+		//cliente.save(1);
 		
 		//cliente.findOne(1);
 		
@@ -26,7 +26,7 @@ public class Empresas_Coisas_Coisas {
 		servico.nome = "RE";
 		servico.valor = 90.0;
 		
-		//servico.save(0, servico);
+		//servico.save(0);
 		
 		//servico.findOne(1);
 		
@@ -34,7 +34,7 @@ public class Empresas_Coisas_Coisas {
 		servico2.nome = "RH";
 		servico2.valor = 180.0;
 		
-		//servico2.save(0, servico2);
+		//servico2.save(0);
 		
 		//servico2.findOne(2);
 		
@@ -62,10 +62,10 @@ public class Empresas_Coisas_Coisas {
 		
 		//cliente_servico.save(0, cliente_servico, 0);
 		
-		cliente_servico.findOne(1);
+		//cliente_servico.findOne(1);
 		
-		cliente_servico.save(1, cliente_servico, 2);
+		//cliente_servico.save(1, cliente_servico, 2);
 		
-		cliente_servico.findOne(1);
+		//cliente_servico.findOne(1);
 	}
 }

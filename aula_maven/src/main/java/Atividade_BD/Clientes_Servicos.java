@@ -50,14 +50,13 @@ public class Clientes_Servicos {
 	    }
 	}
 
-	
-	public void save(int id_cliente, Clientes_Servicos cliente_servico, int id_servico) {
+	public void save(int id_cliente, int id_servico) {
 		if(id_cliente == 0) {
 			try {
 				String sql = "INSERT INTO clientes_servicos (id_cliente, id_servico) VALUES (?,?)";
 	    	    ps = conn.prepareStatement(sql);
-	    	    ps.setInt(1, cliente_servico.id_cliente);
-	    	    ps.setInt(2, cliente_servico.id_servico);
+	    	    ps.setInt(1, this.id_cliente);
+	    	    ps.setInt(2, this.id_servico);
 	    	    
 	    	    int linhasAfetadas = ps.executeUpdate();
 	    	    

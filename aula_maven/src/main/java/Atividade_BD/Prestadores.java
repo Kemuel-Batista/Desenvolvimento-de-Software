@@ -48,13 +48,13 @@ public class Prestadores {
 	    }
 	}
 	
-	public void save(int id, Prestadores prestador, int id_servico) {
+	public void save(int id, int id_servico) {
 	    if (id == 0) {
 	        // SALVAR PRESTADOR NO BANCO
 	    	try {
 	    	    String sql = "INSERT INTO prestadores (nome) VALUES (?)";
 	    	    ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-	    	    ps.setString(1, prestador.nome);
+	    	    ps.setString(1, this.nome);
 	    	    
 	    	    int linhasAfetadas = ps.executeUpdate();
 	    	    
@@ -70,7 +70,7 @@ public class Prestadores {
 	    	            String sqlPrestadoresServicos = "INSERT INTO prestadores_servicos (id_prestador, id_servico) VALUES (?, ?)";
 	    	            PreparedStatement psPrestadoresServicos = conn.prepareStatement(sqlPrestadoresServicos);
 	    	            psPrestadoresServicos.setInt(1, prestadorId);
-	    	            psPrestadoresServicos.setInt(2, prestador.id_servico);
+	    	            psPrestadoresServicos.setInt(2, this.id_servico);
 
 	    	            int linhasAfetadasPrestadoresServicos = psPrestadoresServicos.executeUpdate();
 
@@ -116,11 +116,11 @@ public class Prestadores {
 	            }
 
 	            // Verifica se o nome do prestador não é vazio
-	            if (!prestador.nome.equals("")) {
+	            if (!this.nome.equals("")) {
 	                // Atualiza o nome do prestador na tabela prestadores
 	                String sqlUpdatePrestador = "UPDATE prestadores SET nome=? WHERE id=?";
 	                PreparedStatement psUpdatePrestador = conn.prepareStatement(sqlUpdatePrestador);
-	                psUpdatePrestador.setString(1, prestador.nome);
+	                psUpdatePrestador.setString(1, this.nome);
 	                psUpdatePrestador.setInt(2, id);
 	                int linhasAfetadas = psUpdatePrestador.executeUpdate();
 

@@ -38,15 +38,15 @@ public class Clientes {
 		}
 	}
 	
-	public void save(int id, Clientes cliente) {
+	public void save(int id) {
 		if(id == 0) {
 			// SALVAR CLIENTE NO BANCO
 			try {
 				String sql = "INSERT INTO clientes (cpf, nome, email) VALUES (?,?,?)";
 				ps = conn.prepareStatement(sql);
-				ps.setString(1, cliente.cpf);
-				ps.setString(2, cliente.nome);
-				ps.setString(3, cliente.email);
+				ps.setString(1, this.cpf);
+				ps.setString(2, this.nome);
+				ps.setString(3, this.email);
 				
 				int linhasAfetadas = ps.executeUpdate();
 				
@@ -64,9 +64,9 @@ public class Clientes {
 				String sql = "UPDATE clientes SET cpf=?, nome=?, email=? WHERE id=?";
 				ps = conn.prepareStatement(sql);
 				
-				ps.setString(1, cliente.cpf);
-				ps.setString(2, cliente.nome);
-				ps.setString(3, cliente.email);
+				ps.setString(1, this.cpf);
+				ps.setString(2, this.nome);
+				ps.setString(3, this.email);
 				ps.setInt(4, id);
 				
 				int linhasAfetadas = ps.executeUpdate();
