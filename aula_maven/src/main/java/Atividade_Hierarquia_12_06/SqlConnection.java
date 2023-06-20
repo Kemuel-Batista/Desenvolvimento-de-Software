@@ -10,7 +10,7 @@ public class SqlConnection {
         if (conn == null) {
             String url = "jdbc:mysql://localhost:3306/bd_hierarquia";
             String username = "root";
-            String password = "positivo";
+            String password = "01021993";
 
             return conexao(url, username, password);
         }
