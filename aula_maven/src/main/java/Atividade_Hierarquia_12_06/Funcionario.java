@@ -26,9 +26,9 @@ public class Funcionario extends Pessoa {
             ps.setString(2, nome);
             ps.setString(3, email);
             ps.setDouble(4, this.salario);
-            ps.setDate(4, this.aniversario);
-            ps.setString(4, this.telefone);
-            ps.setString(4, this.departamento);
+            ps.setDate(5, this.aniversario);
+            ps.setString(6, this.telefone);
+            ps.setString(7, this.departamento);
 
             int linhasAfetadas = ps.executeUpdate();
 
