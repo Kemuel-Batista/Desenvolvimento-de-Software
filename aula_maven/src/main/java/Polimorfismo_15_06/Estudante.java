@@ -8,4 +8,14 @@ public class Estudante {
 	public String nome;
 	public String email;
 	ArrayList<Intercurso> cursos = new ArrayList<Intercurso>();
+
+	public double getValorTotal() {
+		double valorTotal = 0.0;
+
+		for (Intercurso curso : cursos) {
+			valorTotal += curso.GetCusto_do_Curso();
+		}
+
+		return valorTotal;
+	}
 }

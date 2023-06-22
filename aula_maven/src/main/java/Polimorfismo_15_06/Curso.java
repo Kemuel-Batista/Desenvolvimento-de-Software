@@ -5,10 +5,13 @@ public abstract class Curso {
 	public int carga_horaria;
 	public double valor_parcela;
 	public String tipo_curso;
-	
-	public void salvar() {}
-	
-	public void find_one() {}
-	
-	public void delete() {}
-}	
+
+	public void salvar() {
+	}
+
+	public void find_one() {
+	}
+
+	public void delete() {
+	}
+}
